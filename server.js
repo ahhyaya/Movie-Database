@@ -30,6 +30,24 @@ app.post('/api/add-movie', (req, res) => {
     console.info(`${req.method} request recieved`);
 });
 
+app.get('/api/movies', (req, res) => {
+    res.json(`${req.method} request recieved`);
+    console.info(`${req.method} request recieved`);
+});
+
+app.delete('/api/movie/:id', (req, res) => {
+    res.json(`${req.method} request recieved`);
+    console.info(`${req.method} request recieved`);
+});
+
+app.get('/api/movie-reviews', (req, res) => {
+    db.query(`SELECT reviews JOIN movies ON movies.id = reviews.movie_id`, function (err, results){
+        console.log(results);
+    })
+});
+
+app.put()
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
